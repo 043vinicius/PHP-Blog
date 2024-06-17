@@ -12,11 +12,24 @@
         include("./component/navbar.php");
     ?>
     <div class="row">
-        <div class="cow-md-3"></div><!--Div vazia -->
-        <div class="cow-md-6 m-3 p-3">
-            artigo
+        <div class="col-md-3"></div><!--Div vazia -->
+        <div class="col-md-6 m-3 p-3">
+            <?php
+                include("./database.php");
+                $id = $_GET['id'];
+                $artigo = $conexao->query("SELECT * from artigos where id = $id");
+                $registro = $artigo->fetch_assoc();
+                $escritor_id = $registro["escritor_id"];
+                $escritor = $conexao->query("SELECT * from escritores where id = $escritor_id");
+                $registro_escritor = $escritor->fetch_assoc();
+                echo "<h1 style=\"text-align: center;\">" . $registro["manchete"] . "</h1>";
+                echo "<b><div style=\"text-align: center;\">" . $registro["categoria"] . "</div></b>";
+                echo "<b><div style=\"text-align: center;\">" . "Escrito por: " . $registro_escritor["nome"] . "</div></b><br>";
+
+                echo "<span>" . $registro["materia"] . "</span>";
+            ?>
         </div>
-        <div class="cow-md-3"></div>
+        <div class="col-md-3"></div>
     </div>
     </div>
 </body>

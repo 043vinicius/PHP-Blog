@@ -10,9 +10,26 @@
                         <li class="nav-item">
                             <a class="nav-link nav-link-white" aria-current="page" href="/projeto/blog.php">Blog</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link-white nav-link" aria-current="page" href="/projeto/admin/postarArtigo.php">Postar artigo</a>
-                        </li>
+                        <?php
+                        session_start();
+                            if (isset($_SESSION['escritor_id'])) {
+                                echo "<li class=\"nav-item\">";
+                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/postarArtigo.php\">Adicionar Artigo</a>";
+                                echo "</li>";
+
+                                echo "<li class=\"nav-item\">";
+                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/editarEscritor.php\">Meu Usuário</a>";
+                                echo "</li>";
+
+                                echo "<li class=\"nav-item\">";
+                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/logout.php\">Logout</a>";
+                                echo "</li>";
+                            } else {
+                                echo "<li class=\"nav-item\">";
+                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/loginForm.php\">Login</a>";
+                                echo "</li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

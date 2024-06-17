@@ -23,6 +23,7 @@
                 echo "<div class=\"card\">";
                 echo "<span>" . $registro["manchete"] . "</span>";
                 echo "<span>" . "Categoria: " . $registro["categoria"] . "</span>";
+                echo "<a href=\"./artigo.php?id=" . $registro["id"] . "\">Ler mais</a>";
                 echo "</div><br>";
 
                 }
