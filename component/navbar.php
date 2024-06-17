@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid">
                 <a class="navbar brand nav-link-white" href="/projeto/index.php">
-                    <img src="https://peidigital.com.br/wp-content/uploads/2024/01/sua-logo-aqui.png" width="80" height="80">
+                    <img src="https://icones.pro/wp-content/uploads/2021/02/icone-de-la-maison-grise.png" width="80" height="80">
                 </a>
                 <div class="collapse navbar-collapse" id="#navbarSupportedContent" style="margin-left: 24px;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -14,11 +14,11 @@
                         session_start();
                             if (isset($_SESSION['escritor_id'])) {
                                 echo "<li class=\"nav-item\">";
-                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/postarArtigo.php\">Adicionar Artigo</a>";
+                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/addArtigoForm.php\">Adicionar Artigo</a>";
                                 echo "</li>";
 
                                 echo "<li class=\"nav-item\">";
-                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/editarEscritor.php\">Meu Usuário</a>";
+                                echo "<a class=\"nav-link nav-link-white\" aria-current=\"page\" href=\"/projeto/admin/escritor.php\">Meu Usuário</a>";
                                 echo "</li>";
 
                                 echo "<li class=\"nav-item\">";

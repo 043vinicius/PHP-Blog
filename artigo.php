@@ -24,13 +24,44 @@
                 $registro_escritor = $escritor->fetch_assoc();
                 echo "<h1 style=\"text-align: center;\">" . $registro["manchete"] . "</h1>";
                 echo "<b><div style=\"text-align: center;\">" . $registro["categoria"] . "</div></b>";
-                echo "<b><div style=\"text-align: center;\">" . "Escrito por: " . $registro_escritor["nome"] . "</div></b><br>";
+                echo "<span>" . "Escrito em: " . date("d/m/Y H:i:s", strtotime($registro["data"])) . "</span><br>";
+                echo "<span>" . "Escrito por: " . $registro_escritor["nome"] . "</span><br>";
 
+                echo "<hr>";
                 echo "<span>" . $registro["materia"] . "</span>";
             ?>
         </div>
         <div class="col-md-3"></div>
     </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 m-3 p-3">
+            <h3>Comentarios</h3>
+            <?php
+                $comentarios = $conexao->query("SELECT * from comentarios where artigo_id = $id");
+                if ($comentarios->num_rows > 0) {
+                    while($registro = $comentarios->fetch_assoc()) {
+                        echo "<div class=\"card\" style=\"padding: 4px;\">";
+                        echo "<span>" . $registro["comentario"] . "</span>";
+                        echo "<span>Escrito em: " . date("d/m/Y H:i:s", strtotime($registro["data"])) . "</span>";
+                        echo "</div><br>";
+                    }
+                } else {
+                    echo "Nenhum comentário encontrado";
+                }
+            ?>
+            <hr><br>
+            <h4>Adicionar comentario</h4>
+            <form action="./addComentario.php" method="post">
+                <input type="hidden" name="artigo_id" value="<?php echo $id; ?>">
+                <div class="mb-3">
+                    <label for="comentario" class="form-label">Comentário</label>
+                    <textarea class="form-control" required id="comentario" name="comentario" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
     </div>
 </body>
 </html>

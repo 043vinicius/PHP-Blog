@@ -19,15 +19,15 @@
                 <form action="./addArtigo.php" method="post">
                     <div class="mb-3">
                         <label for="manchete" class="form-label">Manchete</label>
-                        <input type="text" class="form-control" id="manchete" name="manchete">
+                        <input type="text" required class="form-control" id="manchete" name="manchete">
                     </div>
                     <div class="mb-3">
                         <label for="categoria" class="form-label">Categoria</label>
-                        <input type="text" class="form-control" id="categoria" name="categoria">
+                        <input type="text" required class="form-control" id="categoria" name="categoria">
                     </div>
                     <div class="mb-3">
                         <label for="materia" class="form-label">Matéria</label>
-                        <textarea class="form-control" id="materia" name="materia" rows="3"></textarea>
+                        <textarea class="form-control" required id="materia" name="materia" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
             </div>

@@ -14,16 +14,21 @@
     ?>
 
     <div class="row">
-        <div class="cow-md-6 m-3 p-3">
+        <div class="col-md-2 m-3 p-3"></div>
+
+        <div class="col-md-7 m-3 p-3">
         <?php
             $artigos = $conexao->query("SELECT * from artigos");
 
             if ($artigos->num_rows > 0) {
                 while($registro = $artigos->fetch_assoc()) {
-                echo "<div class=\"card\">";
-                echo "<span>" . $registro["manchete"] . "</span>";
+                echo "<div class=\"card\" style=\"padding: 8px;\">";
+                echo "<h4>" . $registro["manchete"] . "</h4>";
                 echo "<span>" . "Categoria: " . $registro["categoria"] . "</span>";
-                echo "<a href=\"./artigo.php?id=" . $registro["id"] . "\">Ler mais</a>";
+                echo "<span>" . "Escrito em: " . date("d/m/Y H:i:s", strtotime($registro["data"])) . "</span>";
+                echo "<span style=\"text-align: center;\">";
+                echo "<a class=\"btn btn-secondary\" style=\"width: 20%;\" href=\"./artigo.php?id=" . $registro["id"] . "\">Ler mais</a>";
+                echo "</span>";
                 echo "</div><br>";
 
                 }
@@ -32,6 +37,7 @@
             }
         ?>
         </div>
+        <div class="col-md-2 m-3 p-3"></div>
     </div>
 </body>
 </html>
