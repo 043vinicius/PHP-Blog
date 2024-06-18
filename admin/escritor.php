@@ -19,7 +19,7 @@
         <div class="col-md-3 m-3 p-3"></div>
         <div class="col-md-6 m-3 p-3">
             <div class="card">
-                <form action="./editarLogin.php" method="post">
+                <form action="./editLogin.php" method="post">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $escritor['nome']; ?>">
